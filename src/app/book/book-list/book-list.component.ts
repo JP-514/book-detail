@@ -11,6 +11,9 @@ export class BookListComponent implements OnInit {
 
   books: Array<Book> = [];
 
+  selectedBook!: Book;
+  selected: Boolean = false;
+
   constructor(private bookService: BookService) { }
 
   getBooks(): void {
@@ -21,6 +24,11 @@ export class BookListComponent implements OnInit {
 
   ngOnInit() {
     this.getBooks();
+  }
+  
+  onSelected(book: Book): void {
+    this.selected = true;
+    this.selectedBook = book;
   }
 
 }
